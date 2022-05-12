@@ -1,6 +1,6 @@
 $Env:PATH += ':/home/linuxbrew/.linuxbrew/opt/node@16/bin' 
 
-Function Gzip-File([ValidateScript({Test-Path $_})][string]$File){
+Function Compress-File([ValidateScript({Test-Path $_})][string]$File){
  
     $srcFile = Get-Item -Path $File
     $newFileName = "$($srcFile.FullName).gz"
@@ -36,7 +36,7 @@ Set-Location $v2raya_source_path
 pwsh -c "Set-Location ./gui ;yarn; yarn build"
 Get-ChildItem "./web" -recurse |Where-Object{$_.PSIsContainer -eq $False}|ForEach-Object -Process{
     if($_.Extension -ne ".png" -and $_.Extension -ne ".gz" -and $_.Name -ne "index.html"){
-        Gzip-File($_.FullName)
+        Compress-File($_.FullName)
         Remove-Item -Path $_.FullName
     }
 }
