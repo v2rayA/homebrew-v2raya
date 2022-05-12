@@ -1,0 +1,38 @@
+name: Release v2rayA zip files for homebrew-v2raya
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.18.0'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Add PowerShell
+        uses: Amadevus/pwsh-script@v2.0.1
+      - name: Build v2rayA
+        run: |
+          brew install yarn
+          sleep 5
+          pwsh -c /home/runner/work/homebrew-v2raya/homebrew-v2raya/update-helper.ps1
+      - name: Release files
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            v2raya-x86_64-linux.zip
+            v2raya-x86_64-linux-sha256.txt
+            v2raya-x86_64-macos.zip
+            v2raya-x86_64-macos-sha256.txt
+            v2raya-aarch64-macos.zip
+            v2raya-aarch64-macos-sha256.txt
