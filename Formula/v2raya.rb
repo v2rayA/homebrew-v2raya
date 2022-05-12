@@ -3,7 +3,7 @@ class V2raya < Formula
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
     version "1.5.7"
-    ## Install v2rayA
+ 
     $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/1.5.7/v2raya-x86_64-linux.zip"
     $sha_linux_x64 = "A05EB77538B989841B53421B9B8F5B5607D899A55B95DDC5E1F7942CC88AA000"
     $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/1.5.7/v2raya-x86_64-macos.zip"
