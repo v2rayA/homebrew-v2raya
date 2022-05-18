@@ -46,5 +46,6 @@ jobs:
       - name: Push
         uses: ad-m/github-push-action@master
         with:
+          github_url: https://github.com/v2raya/homebrew-v2raya
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
