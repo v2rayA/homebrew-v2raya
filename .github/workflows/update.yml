@@ -38,6 +38,7 @@ jobs:
             v2raya-aarch64-macos-sha256.txt
       - name: Update v2raya.rb
         run: |
+          sleep 5
           cd /home/runner/work/homebrew-v2raya/homebrew-v2raya/
           pwsh -c ./update.ps1
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -46,6 +47,6 @@ jobs:
       - name: Push
         uses: ad-m/github-push-action@master
         with:
-          github_url: https://github.com/v2raya/homebrew-v2raya
+#           github_url: https://github.com/v2raya/homebrew-v2raya
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
