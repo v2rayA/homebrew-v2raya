@@ -16,3 +16,7 @@ If ($Version_Current -eq $Version_Latest) {
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Old_SHA256_Linux_x64, $New_SHA256_Linux_x64 | Out-File "./Formula/v2raya.rb"
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Version_Current, $Version_Latest | Out-File "./Formula/v2raya.rb"
 }
+
+git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+git config --local user.name "github-actions[bot]"
+Start-Process -FilePath /usr/bin/git -ErrorAction SilentlyContinue -Args 'commit -a -m "updated"'
