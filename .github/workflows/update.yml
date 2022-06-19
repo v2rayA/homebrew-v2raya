@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Check update
         uses: Amadevus/pwsh-script@v2.0.1
+      - name: Update v2raya.rb
         run: |
           sleep 5
           cd /home/runner/work/homebrew-v2raya/homebrew-v2raya/
