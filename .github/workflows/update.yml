@@ -14,7 +14,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-go@v3
         with:
-          go-version: '1.18.0'
+          go-version: '1.18.3'
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -40,7 +40,7 @@ jobs:
         run: |
           sleep 5
           cd /home/runner/work/homebrew-v2raya/homebrew-v2raya/
-          pwsh -c ./update.ps1
+          pwsh -c ./updater.ps1
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -a -m "Updated v2rayA"
