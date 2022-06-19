@@ -12,8 +12,8 @@ jobs:
         uses: Amadevus/pwsh-script@v2.0.1
       - name: Update v2raya.rb
         run: |
-          sleep 5
           cd /home/runner/work/homebrew-v2raya/homebrew-v2raya/
+          ls -lh
           pwsh -c ./updater.ps1
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
