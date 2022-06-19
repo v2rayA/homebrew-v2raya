@@ -2,6 +2,9 @@ $Url = 'https://api.github.com/repos/v2rayA/homebrew-v2raya/releases/latest'
 $Version_Latest = Invoke-WebRequest -Uri $Url |  ConvertFrom-Json | Select-Object tag_name | ForEach-Object { ([string]$_.'tag_name') }
 $Version_Current = Get-Content "./Formula/v2raya.rb" | Select-String version | ForEach-Object { ([string]$_).split('"')[1]}
 
+git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+git config --local user.name "github-actions[bot]"
+
 If ($Version_Current -eq $Version_Latest) {
     Write-Output "Nothing to do, you have the latest version."
 }else {
@@ -15,8 +18,5 @@ If ($Version_Current -eq $Version_Latest) {
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Old_SHA256_Darwin_x64, $New_SHA256_Darwin_x64 | Out-File "./Formula/v2raya.rb"
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Old_SHA256_Linux_x64, $New_SHA256_Linux_x64 | Out-File "./Formula/v2raya.rb"
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Version_Current, $Version_Latest | Out-File "./Formula/v2raya.rb"
+    git commit -m "Update v2rayA to $Version_Latest"
 }
-
-git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-git config --local user.name "github-actions[bot]"
-Start-Process -FilePath /usr/bin/git -ErrorAction SilentlyContinue -Args 'commit -a -m "updated"'
