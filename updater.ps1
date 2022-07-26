@@ -18,5 +18,5 @@ If ($Version_Current -eq $Version_Latest) {
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Old_SHA256_Darwin_x64, $New_SHA256_Darwin_x64 | Out-File "./Formula/v2raya.rb"
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Old_SHA256_Linux_x64, $New_SHA256_Linux_x64 | Out-File "./Formula/v2raya.rb"
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Version_Current, $Version_Latest | Out-File "./Formula/v2raya.rb"
-    git commit -m "Update v2rayA to $Version_Latest"
+    git commit -m -a "Update v2rayA to $Version_Latest"
 }
