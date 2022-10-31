@@ -1,4 +1,4 @@
-class V2rayAT5 < Formula
+class V2ray_V5 < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://www.v2fly.org/"
     license "MIT License"
@@ -31,8 +31,8 @@ class V2rayAT5 < Formula
       sha256 "ce6afe0efe22aedacf34ea1b26d2993793c4264e8a9cc971108db96149b2ba23"
     end
 
-    def install  
-      bin.install "v2ray"
+    def install
+      bin.install "v2ray" => "v2ray-v5"
       pkgetc.install "config.json"
       resource("geoip").stage do
         pkgshare.install "geoip.dat"
