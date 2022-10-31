@@ -1,4 +1,4 @@
-class v2rayAT5 < Formula
+class V2rayAT5 < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://www.v2fly.org/"
     license "MIT License"
@@ -33,7 +33,6 @@ class v2rayAT5 < Formula
 
     def install  
       bin.install "v2ray"
-      V2RAY_LOCATION_ASSET: "${V2RAY_LOCATION_ASSET:-#{pkgshare}}"
       pkgetc.install "config.json"
       resource("geoip").stage do
         pkgshare.install "geoip.dat"
@@ -41,6 +40,8 @@ class v2rayAT5 < Formula
       resource("geosite").stage do
         pkgshare.install "geosite.dat"
       end
+      (bin/"v2ray").write_env_script execpath,
+      V2RAY_LOCATION_ASSET: "${V2RAY_LOCATION_ASSET:-#{pkgshare}}"
     end
 
     service do
