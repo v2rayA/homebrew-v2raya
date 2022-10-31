@@ -1,4 +1,4 @@
-class V2ray_V5 < Formula
+class V2ray5 < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://www.v2fly.org/"
     license "MIT License"
@@ -32,7 +32,7 @@ class V2ray_V5 < Formula
     end
 
     def install
-      bin.install "v2ray" => "v2ray-v5"
+      bin.install "v2ray" => "v2ray5"
       pkgetc.install "config.json"
       resource("geoip").stage do
         pkgshare.install "geoip.dat"
@@ -43,8 +43,8 @@ class V2ray_V5 < Formula
     end
 
     service do
-      environment_variables V2RAY_LOCATION_ASSET: "#{HOMEBREW_PREFIX}/opt/v2ray_v5/share"
-      run [bin/"v2ray", "run", "-config", etc/"v2ray_v5/config.json"]
+      environment_variables V2RAY_LOCATION_ASSET: "#{HOMEBREW_PREFIX}/opt/v2ray5/share"
+      run [bin/"v2ray", "run", "-config", etc/"v2ray5/config.json"]
       keep_alive true
     end
 end
