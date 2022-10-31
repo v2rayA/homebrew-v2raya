@@ -43,8 +43,8 @@ class V2ray_V5 < Formula
     end
 
     service do
-      environment_variables V2RAY_LOCATION_ASSET: "#{HOMEBREW_PREFIX}/opt/v2ray@5/share"
-      run [bin/"v2ray", "run", "-config", etc/"v2ray/config.json"]
+      environment_variables V2RAY_LOCATION_ASSET: "#{HOMEBREW_PREFIX}/opt/v2ray_v5/share"
+      run [bin/"v2ray", "run", "-config", etc/"v2ray_v5/config.json"]
       keep_alive true
     end
 end
