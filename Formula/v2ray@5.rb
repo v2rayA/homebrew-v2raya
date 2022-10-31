@@ -40,11 +40,10 @@ class V2rayAT5 < Formula
       resource("geosite").stage do
         pkgshare.install "geosite.dat"
       end
-      (bin/"v2ray").write_env_script execpath,
-      V2RAY_LOCATION_ASSET: "${V2RAY_LOCATION_ASSET:-#{pkgshare}}"
     end
 
     service do
+      environment_variables V2RAY_LOCATION_ASSET: "#{HOMEBREW_PREFIX}/opt/v2ray@5/share"
       run [bin/"v2ray", "run", "-config", etc/"v2ray/config.json"]
       keep_alive true
     end
