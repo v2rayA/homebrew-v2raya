@@ -13,8 +13,17 @@ class V2rayaGit < Formula
     depends_on "yarn" => :build
 
     def install
-      system "/bin/bash", "-c", "./build.sh"
-      bin.install "v2raya" => "v2raya-git"
+        ENV.deparallelize
+        chdir "gui" do
+          system "yarn"
+          system "yarn", "build"
+        end
+        cp_r "web", "service/server/router/"
+        chdir "service" do
+          system "go", "build", "-ldflags \"-X github.com/v2rayA/v2rayA/conf.Version=unstable-#{version} -s -w\" -o \"v2raya\""
+        end
+      cp_r "service/v2raya", "v2raya-git"
+      bin.install "v2raya-git"
     end
 
     service do
