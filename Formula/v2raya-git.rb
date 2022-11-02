@@ -1,4 +1,4 @@
-class "V2raya-git" < Formula
+class V2rayaGit < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
