@@ -37,7 +37,7 @@ $Latest_Version = $Latest_Version_Date + $(($Latest_Commit_ID)|cut -b 1-6)
 
 $Current_Version = Get-Content -Path "./Formula/v2raya-git.rb" | Select-String "version " | ForEach-Object { ([string]$_).split('"')[1]}
 
-if ($Version_Current -eq $Version_Latest) {
+if ($Current_Version -eq $Latest_Version) {
     Write-Output "Nothing to do, you have the latest version of v2raya-git."
 }else{
     Get-Content -Path "./Formula/v2raya-git.rb" | -replace $Current_Source_Url, $Latest_Source_Url | Out-File "./Formula/v2raya-git.rb"
