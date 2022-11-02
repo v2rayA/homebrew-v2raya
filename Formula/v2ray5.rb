@@ -20,17 +20,7 @@ class V2ray5 < Formula
       url $url_macos_arm64
       sha256 $sha_macos_arm64
     end
-
-    resource "geoip" do
-      url "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210302212/geoip.dat"
-      sha256 "98a5b0e79104419eeeb6451adf5c91ba9dd162aa8e0b79c53bef94313966a08a"
-    end
-
-    resource "geosite" do
-      url "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202210302212/geosite.dat"
-      sha256 "ce6afe0efe22aedacf34ea1b26d2993793c4264e8a9cc971108db96149b2ba23"
-    end
-
+    
     def install
       bin.install "v2ray" => "v2ray5"
       pkgetc.install "config.json"
