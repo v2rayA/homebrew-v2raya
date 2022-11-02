@@ -20,16 +20,12 @@ class V2ray5 < Formula
       url $url_macos_arm64
       sha256 $sha_macos_arm64
     end
-    
+
     def install
       bin.install "v2ray" => "v2ray5"
       pkgetc.install "config.json"
-      resource("geoip").stage do
-        pkgshare.install "geoip.dat"
-      end
-      resource("geosite").stage do
-        pkgshare.install "geosite.dat"
-      end
+      pkgshare.install "geoip.dat"
+      pkgshare.install "geosite.dat"
     end
 
     service do
