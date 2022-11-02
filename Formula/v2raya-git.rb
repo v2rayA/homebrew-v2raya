@@ -20,7 +20,7 @@ class V2rayaGit < Formula
         end
         cp_r "web", "service/server/router/"
         chdir "service" do
-          system "go", "build", "-o \"v2raya\" -ldflags \"-X github.com/v2rayA/v2rayA/conf.Version=unstable-#{version} -s -w\""
+          system "go build -o \"v2raya\" -ldflags \"-X github.com/v2rayA/v2rayA/conf.Version=unstable-#{version} -s -w\""
         end
       cp_r "service/v2raya", "v2raya-git"
       bin.install "v2raya-git"
