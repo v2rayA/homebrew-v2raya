@@ -8,6 +8,9 @@ class V2rayaGit < Formula
     sha256 "ac4384f7e12408f6734b38069fef6aa0e124c2050660e1570a08715e3b1b7a86"
 
     depends_on "v2ray5"
+    depends_on "go" => :build
+    depends_on "node" => :build
+    depends_on "yarn" => :build
 
     def install
       system "/bin/bash", "-c", "./build.sh"
