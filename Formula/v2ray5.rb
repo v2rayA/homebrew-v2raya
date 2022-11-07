@@ -26,11 +26,12 @@ class V2ray5 < Formula
       pkgetc.install "config.json"
       pkgshare.install "geoip.dat"
       pkgshare.install "geosite.dat"
+      pkgshare.install "geoip-only-cn-private.dat"
     end
 
     service do
       environment_variables V2RAY_LOCATION_ASSET: "#{HOMEBREW_PREFIX}/opt/v2ray5/share"
-      run [bin/"v2ray", "run", "-config", etc/"v2ray5/config.json"]
+      run [bin/"v2ray5", "run", "-config", etc/"v2ray5/config.json"]
       keep_alive true
     end
 end
