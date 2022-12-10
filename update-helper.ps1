@@ -32,7 +32,6 @@ Write-Output $v2raya_latest; Write-Output $v2raya_source_path; Write-Output $v2r
 Invoke-WebRequest -Uri $v2raya_url -OutFile 'v2raya_latest.tar.gz'
 tar -xzf ./v2raya_latest.tar.gz
 Set-Location $v2raya_source_path
-# ${env:NODE_OPTIONS} = "--openssl-legacy-provider"
 
 pwsh -c "Set-Location ./gui ;yarn; yarn build"
 Get-ChildItem "./web" -recurse |Where-Object{$_.PSIsContainer -eq $False}|ForEach-Object -Process{
