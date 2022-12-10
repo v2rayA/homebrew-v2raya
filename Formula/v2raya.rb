@@ -21,14 +21,14 @@ class V2raya < Formula
       sha256 $sha_macos_arm64
     end
 
-    depends_on "v2ray"
+    depends_on "v2ray5"
 
     def install
       bin.install "v2raya"
     end
 
     service do
-      environment_variables V2RAYA_V2RAY_BIN: "#{HOMEBREW_PREFIX}/bin/v2ray", V2RAYA_LOG_FILE: "/tmp/v2raya.log", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:"
+      environment_variables V2RAYA_V2RAY_BIN: "#{HOMEBREW_PREFIX}/bin/v2ray5", V2RAYA_LOG_FILE: "/tmp/v2raya.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2ray5"
       run [bin/"v2raya", "--lite"]
       keep_alive true
     end

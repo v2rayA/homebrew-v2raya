@@ -6,23 +6,20 @@ on:
 
 jobs:
   update:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: actions/setup-go@v3
-        with:
-          go-version: '>=1.18.3'
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+      # - uses: actions/setup-go@v3
+      #   with:
+      #     go-version: '>=1.18.3'
       - name: Add PowerShell
         uses: Amadevus/pwsh-script@v2.0.1
       - name: Build v2rayA
         run: |
-          brew install yarn
+          brew install yarn nodejs go
           sleep 5
           pwsh -c /home/runner/work/homebrew-v2raya/homebrew-v2raya/update-helper.ps1
       - name: Release files
