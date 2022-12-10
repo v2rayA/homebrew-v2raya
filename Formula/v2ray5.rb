@@ -1,5 +1,5 @@
 class V2ray5 < Formula
-    desc "Web-based GUI client of Project V"
+    desc "v2ray core from Project V"
     homepage "https://www.v2fly.org/"
     license "MIT License"
     version "5.1.0"
