@@ -12,13 +12,11 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      # - uses: actions/setup-go@v3
-      #   with:
-      #     go-version: '>=1.18.3'
       - name: Add PowerShell
         uses: Amadevus/pwsh-script@v2.0.1
       - name: Build v2rayA
         run: |
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install yarn nodejs go
           sleep 5
           pwsh -c /home/runner/work/homebrew-v2raya/homebrew-v2raya/update-helper.ps1
