@@ -16,7 +16,7 @@ Get_Current_Hash(){
 }
 
 if [ $Latest_Version == $Current_Version]; then
-    echo "No update for v2ray5"
+    echo "Nothing to do, you have the latest version of v2ray5."
 else
     Get_Current_Hash
     Get_Latest_Hash
