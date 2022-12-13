@@ -1,15 +1,15 @@
-class V2raya < Formula
-    desc "Web-based GUI client of Project V"
-    homepage "https://v2raya.org"
-    license "AGPL-3.0-only"
-    version "2.0.0"
+class V2ray5 < Formula
+    desc "v2ray core from Project V"
+    homepage "https://www.v2fly.org/"
+    license "MIT License"
+    version "5.1.0"
  
-    $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.0.0/v2raya-x86_64-linux.zip"
-    $sha_linux_x64 = "51BB63DD931852784566347EEB556E216325FEEA22987F0E1B93C32666DD229A"
-    $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.0.0/v2raya-x86_64-macos.zip"
-    $sha_macos_x64 = "CF6375DC97608E617769FA24CB4112E93FDE768A40B39367915F04BAA4412B04"
-    $url_macos_arm64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.0.0/v2raya-aarch64-macos.zip"
-    $sha_macos_arm64 = "B250B6A2BAC53E2F0AED3C7F356BF2E4A30F6E660CDAE521F3AA8FDFC9300D88"
+    $url_linux_x64 = "https://github.com/v2fly/v2ray-core/releases/download/v5.1.0/v2ray-linux-64.zip"
+    $sha_linux_x64 = "e670334a1734b37361f5a1f12d79e989944b0f9556322f1ae710c2db16528e6a"
+    $url_macos_x64 = "https://github.com/v2fly/v2ray-core/releases/download/v5.1.0/v2ray-macos-64.zip"
+    $sha_macos_x64 = "fe649ebe10d507d0f04db3eeaccb6363cffac1fc42e517d0e10f3fc16c6ef5cd"
+    $url_macos_arm64 = "https://github.com/v2fly/v2ray-core/releases/download/v5.1.0/v2ray-macos-arm64-v8a.zip"
+    $sha_macos_arm64 = "a916c2b1a041ad5771fa0153ceed24260e6b9e07e5f946caf80b949c699f44f4"
     if OS.linux?
       url $url_linux_x64
       sha256 $sha_linux_x64
@@ -21,15 +21,17 @@ class V2raya < Formula
       sha256 $sha_macos_arm64
     end
 
-    depends_on "v2ray5"
-
     def install
-      bin.install "v2raya"
+      bin.install "v2ray" => "v2ray5"
+      pkgetc.install "config.json"
+      pkgshare.install "geoip.dat"
+      pkgshare.install "geosite.dat"
+      pkgshare.install "geoip-only-cn-private.dat"
     end
 
     service do
-      environment_variables V2RAYA_V2RAY_BIN: "#{HOMEBREW_PREFIX}/bin/v2ray5", V2RAYA_LOG_FILE: "/tmp/v2raya.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2ray5"
-      run [bin/"v2raya", "--lite"]
+      environment_variables V2RAY_LOCATION_ASSET: "#{HOMEBREW_PREFIX}/opt/v2ray5/share"
+      run [bin/"v2ray5", "run", "-config", etc/"v2ray5/config.json"]
       keep_alive true
     end
 end
