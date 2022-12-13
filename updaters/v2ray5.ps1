@@ -1,4 +1,4 @@
-$Latest_Version = curl -s "https://api.github.com/repos/v2fly/v2ray-core/releases/latest" | sed 'y/,/\n/'  | grep 'tag_name' | awk -F '"' '{print $4}' | sed s/v//
+$Latest_Version = ((Invoke-WebRequest "https://api.github.com/repos/v2fly/v2ray-core/releases/latest" |  ConvertFrom-Json ).tag_name).split('v')[1]
 $Current_Version = Get-Content "./Formula/v2ray5.rb" | Select-String version | ForEach-Object { ([string]$_).split('"')[1] }
 
 if ($Latest_Version -eq $Current_Version) {
