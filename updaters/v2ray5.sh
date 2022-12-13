@@ -15,6 +15,6 @@ else
     cat ./Formula/v2ray5.rb | sed s/$Current_Linux64_Hash/$Latest_Linux64_Hash > ./Formula/v2ray5.rb
     cat ./Formula/v2ray5.rb | sed s/$Current_macOS_x64Hash/$Latest_macOS_x64Hash > ./Formula/v2ray5.rb
     cat ./Formula/v2ray5.rb | sed s/$Current_macOS_arm64Hash/$Latest_macOS_arm64Hash > ./Formula/v2ray5.rb
-    cat ./Formula/v2ray5.rb | sed s/$Current_Version/$Latest_Version/g > ./Formula/v2ray5.rb
+    cat ./Formula/v2ray5.rb | sed s/$Current_Version/$Latest_Version > ./Formula/v2ray5.rb
     git commit -a -m "v2ray5: update to version $Latest_Version"
 fi
