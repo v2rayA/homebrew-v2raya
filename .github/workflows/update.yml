@@ -1,4 +1,4 @@
-name: Update v2raya.rb
+name: Update Formulas
 
 on:
   workflow_dispatch:
@@ -13,14 +13,14 @@ jobs:
           persist-credentials: false
           fetch-depth: 0
       - uses: Amadevus/pwsh-script@v2.0.3
-      - name: Update Formula
+      - name: Run Updaters
         run: |
           ls -lh
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           pwsh -c ./updaters/v2raya.ps1
           pwsh -c ./updaters/v2raya-git.ps1
-          cat ./updaters/v2ray5.sh | bash
+          pwsh -c ./updaters/v2ray5.ps1
       - name: Push
         uses: ad-m/github-push-action@master
         with:
