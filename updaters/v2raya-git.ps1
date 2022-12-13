@@ -1,4 +1,3 @@
-#Update v2raya-git.rb
 $Latest_Commit_ID = (((Invoke-WebRequest -Uri "https://api.github.com/repos/v2rayA/v2rayA/commits/feat_v5" | ConvertFrom-Json).commit).url).Split("/")[8]
 $Latest_Source_Url = "https://github.com/v2rayA/v2rayA/archive/$Latest_Commit_ID.zip"
 

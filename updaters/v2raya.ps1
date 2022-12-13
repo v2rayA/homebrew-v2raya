@@ -1,6 +1,4 @@
-#Update v2raya.rb
-$Url = 'https://api.github.com/repos/v2rayA/homebrew-v2raya/releases/latest'
-$Version_Latest = ((Invoke-WebRequest $Url | ConvertFrom-Json ).tag_name).split('v')[1]
+$Version_Latest = ((Invoke-WebRequest "https://api.github.com/repos/v2rayA/homebrew-v2raya/releases/latest" | ConvertFrom-Json ).tag_name)
 $Version_Current = Get-Content "./Formula/v2raya.rb" | Select-String version | ForEach-Object { ([string]$_).split('"')[1]}
 
 If ($Version_Current -eq $Version_Latest) {
