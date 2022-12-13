@@ -14,7 +14,7 @@ Install v2rayA
 brew install v2raya
 ```
 
-Package `v2ray` will be installed as a dependency package.
+Package `v2ray5` from this tap will be installed as a dependency package.
 
 ## Run v2rayA
 
@@ -28,3 +28,8 @@ Run as a brew service
 
 ```bash
 brew services start v2raya
+```
+
+## Open the Web Panel
+
+Open <http://localhost:2017>, and you will see the web panel, add your proxy servers and start proxing!
