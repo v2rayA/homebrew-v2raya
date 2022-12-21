@@ -1,6 +1,11 @@
 $Latest_Version = ((Invoke-WebRequest "https://api.github.com/repos/v2fly/v2ray-core/releases/latest" |  ConvertFrom-Json ).tag_name).split('v')[1]
 $Current_Version = Get-Content "./Formula/v2ray5.rb" | Select-String version | ForEach-Object { ([string]$_).split('"')[1] }
 
+if ([String]::IsNullOrEmpty($Latest_Version)) {
+    Write-Output "GitHub API rate limit exceeded, please try again later."
+    exit
+}
+
 if ($Latest_Version -eq $Current_Version) {
     Write-Output "Nothing to do, you have the latest version of v2ray5."
 }

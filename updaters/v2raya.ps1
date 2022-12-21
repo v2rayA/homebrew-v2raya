@@ -1,6 +1,11 @@
 $Version_Latest = ((Invoke-WebRequest "https://api.github.com/repos/v2rayA/homebrew-v2raya/releases/latest" | ConvertFrom-Json ).tag_name)
 $Version_Current = Get-Content "./Formula/v2raya.rb" | Select-String version | ForEach-Object { ([string]$_).split('"')[1]}
 
+if ([String]::IsNullOrEmpty($Version_Latest)) {
+    Write-Output "GitHub API rate limit exceeded, please try again later."
+    exit
+}
+
 If ($Version_Current -eq $Version_Latest) {
     Write-Output "Nothing to do, you have the latest version of v2raya."
 }else {
