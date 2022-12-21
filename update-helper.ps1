@@ -55,10 +55,10 @@ $env:GOARCH = "arm64"; $env:GOOS = "darwin"; go build -ldflags $build_flags -o '
 Set-Location ../
 
 Compress-Archive -Path "./v2raya-x86_64-linux/*" -DestinationPath "../v2raya-x86_64-linux.zip"
-Get-FileHash "../v2raya-x86_64-linux.zip" | Select-Object Hash | ForEach-Object { ([string]$_.Hash) } | Out-File -Path "../v2raya-x86_64-linux-sha256.txt"
+(Get-FileHash "../v2raya-x86_64-linux.zip").Hash | Out-File -Path "../v2raya-x86_64-linux-sha256.txt"
 
 Compress-Archive -Path "./v2raya-x86_64-macos/*" -DestinationPath "../v2raya-x86_64-macos.zip"
-Get-FileHash "../v2raya-x86_64-macos.zip" | Select-Object Hash | ForEach-Object { ([string]$_.Hash) } | Out-File -Path "../v2raya-x86_64-macos-sha256.txt"
+(Get-FileHash "../v2raya-x86_64-macos.zip").Hash | Out-File -Path "../v2raya-x86_64-macos-sha256.txt"
 
 Compress-Archive -Path "./v2raya-aarch64-macos/*" -DestinationPath "../v2raya-aarch64-macos.zip"
-Get-FileHash "../v2raya-aarch64-macos.zip" | Select-Object Hash | ForEach-Object { ([string]$_.Hash) } | Out-File -Path "../v2raya-aarch64-macos-sha256.txt"
+(Get-FileHash "../v2raya-aarch64-macos.zip").Hash | Out-File -Path "../v2raya-aarch64-macos-sha256.txt"
