@@ -21,3 +21,6 @@ If ($Version_Current -eq $Version_Latest) {
     (Get-Content -Path "./Formula/v2raya.rb") -replace $Version_Current, $Version_Latest | Out-File "./Formula/v2raya.rb"
     git commit "./Formula/v2raya.rb" -m "v2rayA: update to version $Version_Latest"
 }
+
+$version_Loyalsoldier_latest = ((Invoke-WebRequest "https://api.github.com/repos/Loyalsoldier/v2ray-rules-dat/releases/latest" | ConvertFrom-Json ).tag_name)
+$version_Loyalsoldier_current = Get-Content "./Formula/v2raya.rb" | Select-String 'Loyalsoldier_version' | ForEach-Object { ([string]$_).split('"')[1]}

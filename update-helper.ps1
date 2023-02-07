@@ -54,16 +54,6 @@ $env:GOARCH = "amd64"; $env:GOOS = "darwin"; go build -ldflags $build_flags -o '
 $env:GOARCH = "arm64"; $env:GOOS = "darwin"; go build -ldflags $build_flags -o '../v2raya-aarch64-macos/v2raya'
 Set-Location ../
 
-Invoke-WebRequest -Uri "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -OutFile 'LoyalsoldierSite.dat'
-Invoke-WebRequest -Uri "https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat" -OutFile 'geoip-only-cn-private.dat'
-Invoke-WebRequest -Uri "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat" -OutFile 'geosite.dat'
-Invoke-WebRequest -Uri "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat" -OutFile 'geoip.dat'
-
-chmod 644 ./*.dat
-Copy-Item -Path ./*.dat -Destination "./v2raya-x86_64-linux/" 
-Copy-Item -Path ./*.dat -Destination "./v2raya-x86_64-macos/" 
-Copy-Item -Path ./*.dat -Destination "./v2raya-aarch64-macos/" 
-
 Compress-Archive -Path "./v2raya-x86_64-linux/*" -DestinationPath "../v2raya-x86_64-linux.zip"
 (Get-FileHash "../v2raya-x86_64-linux.zip").Hash | Out-File -Path "../v2raya-x86_64-linux-sha256.txt"
 
