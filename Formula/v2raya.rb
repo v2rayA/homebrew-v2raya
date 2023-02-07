@@ -25,10 +25,14 @@ class V2raya < Formula
 
     def install
       bin.install "v2raya"
+      pkgshare.install "geoip.dat"
+      pkgshare.install "geosite.dat"
+      pkgshare.install "geoip-only-cn-private.dat"
+      pkgshare.install "LoyalsoldierSite.dat"
     end
 
     service do
-      environment_variables V2RAYA_V2RAY_BIN: "#{HOMEBREW_PREFIX}/bin/v2ray5", V2RAYA_LOG_FILE: "/tmp/v2raya.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2ray5"
+      environment_variables V2RAYA_V2RAY_BIN: "#{HOMEBREW_PREFIX}/bin/v2ray5", V2RAYA_LOG_FILE: "/tmp/v2raya.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2raya"
       run [bin/"v2raya", "--lite"]
       keep_alive true
     end
