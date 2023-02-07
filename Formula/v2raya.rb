@@ -61,9 +61,9 @@ class V2raya < Formula
         pkgshare.install "geosite.dat" => "geosite.dat"
         pkgshare.install "geosite.dat" => "LoyalSoldierSite.dat"
       end
-    end
-
+      
       bin.install "v2raya"
+    
     end
 
     service do
