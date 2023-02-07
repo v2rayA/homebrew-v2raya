@@ -25,10 +25,10 @@ class V2raya < Formula
 
     def install
       bin.install "v2raya"
-      pkgshare.install "geoip.dat"
-      pkgshare.install "geosite.dat"
-      pkgshare.install "geoip-only-cn-private.dat"
-      pkgshare.install "LoyalsoldierSite.dat"
+      # pkgshare.install "geoip.dat"
+      # pkgshare.install "geosite.dat"
+      # pkgshare.install "geoip-only-cn-private.dat"
+      # pkgshare.install "LoyalsoldierSite.dat"
     end
 
     service do
