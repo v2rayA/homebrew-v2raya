@@ -3,7 +3,8 @@ class V2raya < Formula
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
     version "2.0.1-2"
- 
+    
+    $v2rayA_version = "2.0.1-2"
     $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.0.1-2/v2raya-x86_64-linux.zip"
     $sha_linux_x64 = "A3CF5EC67836483CE49C927D1CF81C04A36F99DDCF4DA092AAC1FC3C62A8F59F"
     $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.0.1-2/v2raya-x86_64-macos.zip"
@@ -61,7 +62,7 @@ class V2raya < Formula
         pkgshare.install "geosite.dat" => "geosite.dat"
         pkgshare.install "geosite.dat" => "LoyalSoldierSite.dat"
       end
-      
+
       bin.install "v2raya"
     
     end
