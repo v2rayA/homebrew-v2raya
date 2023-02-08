@@ -30,38 +30,38 @@ class V2raya < Formula
       sha256 $sha_macos_arm64
     end
 
-    resource "geoip" do
-      url $url_LoyalsoldierIP
-      sha256 $sha_LoyalsoldierIP
-    end
+    # resource "geoip" do
+    #   url $url_LoyalsoldierIP
+    #   sha256 $sha_LoyalsoldierIP
+    # end
   
-    resource "geoip-only-cn-private" do
-      url $url_geoip_only_cn_private
-      sha256 $sha_geoip_only_cn_private
-    end
+    # resource "geoip-only-cn-private" do
+    #   url $url_geoip_only_cn_private
+    #   sha256 $sha_geoip_only_cn_private
+    # end
   
-    resource "geosite" do
-      url $url_LoyalsoldierSite
-      sha256 $sha_LoyalsoldierSite
-    end
+    # resource "geosite" do
+    #   url $url_LoyalsoldierSite
+    #   sha256 $sha_LoyalsoldierSite
+    # end
 
     depends_on "v2ray5"
 
     def install
 
-      resource("geoip").stage do
-        pkgshare.install "geoip.dat"
-        pkgshare.install "geoip.dat" => "LoyalSoldierIP.dat"
-      end
+    #   resource("geoip").stage do
+    #     pkgshare.install "geoip.dat"
+    #     pkgshare.install "geoip.dat" => "LoyalSoldierIP.dat"
+    #   end
   
-      resource("geoip-only-cn-private").stage do
-        pkgshare.install "geoip-only-cn-private.dat"
-      end
+    #   resource("geoip-only-cn-private").stage do
+    #     pkgshare.install "geoip-only-cn-private.dat"
+    #   end
   
-      resource("geosite").stage do
-        pkgshare.install "geosite.dat" => "geosite.dat"
-        pkgshare.install "geosite.dat" => "LoyalSoldierSite.dat"
-      end
+    #   resource("geosite").stage do
+    #     pkgshare.install "geosite.dat" => "geosite.dat"
+    #     pkgshare.install "geosite.dat" => "LoyalSoldierSite.dat"
+    #   end
 
       bin.install "v2raya"
     
