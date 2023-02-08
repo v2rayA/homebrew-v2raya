@@ -23,8 +23,8 @@ jobs:
         with:
           files: |
             v2raya-x86_64-linux.zip
-            v2raya-x86_64-linux-sha256.txt
+            v2raya-x86_64-linux.sha256.txt
             v2raya-x86_64-macos.zip
-            v2raya-x86_64-macos-sha256.txt
+            v2raya-x86_64-macos.sha256.txt
             v2raya-aarch64-macos.zip
-            v2raya-aarch64-macos-sha256.txt
+            v2raya-aarch64-macos.sha256.txt
