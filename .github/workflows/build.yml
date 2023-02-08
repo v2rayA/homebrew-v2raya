@@ -12,14 +12,11 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Add PowerShell
-        uses: Amadevus/pwsh-script@v2.0.3
       - name: Build v2rayA
         run: |
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install yarn nodejs go
-          sleep 5
-          pwsh -c /home/runner/work/homebrew-v2raya/homebrew-v2raya/update-helper.ps1
+          cat build.sh | bash
       - name: Release files
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
