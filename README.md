@@ -14,7 +14,7 @@ Install v2rayA
 brew install v2raya
 ```
 
-Package `v2ray5` from this tap will be installed as a dependency package.
+Package `v2ray` from `homwbrew-core` will be installed as a dependency package.
 
 ## Run v2rayA
 
