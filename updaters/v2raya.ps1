@@ -1,5 +1,5 @@
-$Version_Latest = ((Invoke-WebRequest "https://api.github.com/repos/v2rayA/homebrew-v2raya/releases/latest" | ConvertFrom-Json ).tag_name)
-$Version_Current = Get-Content "./Formula/v2raya.rb" | Select-String version | ForEach-Object { ([string]$_).split('"')[1]}
+$Version_Latest = (Invoke-RestMethod "https://api.github.com/repos/v2rayA/homebrew-v2raya/releases/latest").tag_name
+$Version_Current = Get-Content "./Formula/v2raya.rb" | Select-String v2rayA_version | ForEach-Object { ([string]$_).split('"')[1]}
 
 if ([String]::IsNullOrEmpty($Version_Latest)) {
     Write-Output "GitHub API rate limit exceeded, please try again later."
