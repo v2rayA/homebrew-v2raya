@@ -27,7 +27,7 @@ class V2rayaGit < Formula
     end
 
     service do
-      environment_variables V2RAYA_V2RAY_BIN: "#{HOMEBREW_PREFIX}/bin/v2ray5", V2RAYA_LOG_FILE: "/tmp/v2raya_feat_v5.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2ray5"
+      environment_variables V2RAYA_V2RAY_BIN: "#{HOMEBREW_PREFIX}/bin/v2ray", V2RAYA_LOG_FILE: "/tmp/v2raya_feat_v5.log", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:"
       run [bin/"v2raya-git", "--lite"]
       keep_alive true
     end
