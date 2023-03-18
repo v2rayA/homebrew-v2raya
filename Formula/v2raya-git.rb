@@ -7,7 +7,7 @@ class V2rayaGit < Formula
     url "https://github.com/v2rayA/v2rayA/archive/fc71a155af2c729bbfd51174241503aac5e09785.zip"
     sha256 "EF3F54AE3D5C9080E5498E2A09C60FAA59DB347B6A91450994DAB6DF428F3D0C"
 
-    depends_on "v2ray5"
+    depends_on "v2ray"
     depends_on "go" => :build
     depends_on "node" => :build
     depends_on "yarn" => :build
