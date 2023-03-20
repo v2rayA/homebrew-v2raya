@@ -1,8 +1,8 @@
 #!/bin/bash
 
-set -ex
+set -e
 
-v2rayA_latest_tag=$(curl -s https://api.github.com/repos/v2rayA/v2rayA/releases/latest | jq -r '.tag_name'| awk -F 'v' '{print $2}')
+v2rayA_latest_tag=$(curl -s https://api.github.com/repos/v2rayA/v2rayA/tags | jq -r ".[]" |  jq -r '.name' | awk 'NR==1 {print; exit}' | awk -F 'v' '{print $2}')
 v2rayA_source_url='https://github.com/v2rayA/v2rayA/archive/refs/tags/''v'"$v2rayA_latest_tag"'.tar.gz'
 
 curl -L -o v2rayA.tar.gz $v2rayA_source_url
