@@ -3,7 +3,7 @@ name: Update Formulas
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 */16 * * *'
+    - cron: '20 */8 * * *'
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -23,6 +23,5 @@ jobs:
       - name: Push
         uses: ad-m/github-push-action@master
         with:
-#           github_url: https://github.com/v2raya/homebrew-v2raya
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
