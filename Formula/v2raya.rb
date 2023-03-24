@@ -30,7 +30,7 @@ class V2raya < Formula
     end
 
     service do
-      environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya.log", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:"
+      environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya.log", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:", PATH="#{HOMEBREW_PREFIX}/bin:"
       run [bin/"v2raya", "--lite"]
       keep_alive true
     end
