@@ -44,5 +44,5 @@ if [ "$current_version" != "$version" ]; then
     sed -i "s|$current_version|$version|g" ./Formula/v2raya-unstable.rb
     git commit ./Formula/v2raya-unstable.rb -m "v2rayA-Unstable: update to $version"
 else
-    echo "v2rayA-Unstable: already latest version $version"
+    echo "Nothing to do, you have the latest version of v2rayA unstable."
 fi

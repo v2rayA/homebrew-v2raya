@@ -20,6 +20,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           pwsh -c ./updaters/v2raya.ps1
           pwsh -c ./updaters/v2raya-git.ps1
+          cat ./updaters/v2raya-unstable.sh | bash
       - name: Push
         uses: ad-m/github-push-action@master
         with:
