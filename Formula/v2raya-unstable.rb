@@ -15,15 +15,15 @@ class V2rayaUnstable < Formula
     if OS.linux?
       url $url_linux_x64
       sha256 $sha_linux_x64
-      os_type linux_x64
+      os_type "linux_x64"
     elsif Hardware::CPU.intel?
       url $url_macos_x64
       sha256 $sha_macos_x64
-      os_type darwin_x64
+      os_type "darwin_x64"
       else
       url $url_macos_arm64
       sha256 $sha_macos_arm64
-      os_type darwin_arm64
+      os_type "darwin_arm64"
     end
 
     depends_on "v2ray"
