@@ -27,6 +27,7 @@ class V2raya < Formula
 
     def install
       bin.install "v2raya"
+      puts "if you forget your password, stop running v2raya, then run `v2raya --lite --reset-password` to reset password."
     end
 
     service do

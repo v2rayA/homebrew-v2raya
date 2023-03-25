@@ -30,8 +30,9 @@ class V2rayaUnstable < Formula
 
     def install
       bin.install "v2raya_#{$os_type}_unstable-#{version}" => "v2raya-unstable"
-      system "echo", "v2raya-unstable installed, please don't run both v2raya and v2raya-unstable service at the same time."
-      system "echo", "or write launchd's plist file yourself to specify ports used by v2raya-unstable."
+      puts "v2raya-unstable installed, don't run both v2raya and v2raya-unstable service at the same time."
+      puts "or write launchd's plist file yourself to specify ports used by v2raya-unstable."
+      puts "if you forget your password, stop running v2raya-unstable, then run `v2raya-unstable --lite --reset-password` to reset password."
     end
 
     service do
