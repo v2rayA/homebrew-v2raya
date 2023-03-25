@@ -30,7 +30,7 @@ class V2rayaUnstable < Formula
 
     def install
         mv
-      bin.install "v2raya_unstable_#{$os_type}_#{version}" => "v2raya-unstable"
+      bin.install "v2raya_#{$os_type}_unstable_#{version}" => "v2raya-unstable"
       system "echo", "v2raya-unstable installed, please don't run both v2raya and v2raya-unstable service at the same time."
       system "echo", "or write launchd's plist file yourself to specify ports used by v2raya-unstable."
     end
