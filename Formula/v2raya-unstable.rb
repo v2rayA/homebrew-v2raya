@@ -15,21 +15,22 @@ class V2rayaUnstable < Formula
     if OS.linux?
       url $url_linux_x64
       sha256 $sha_linux_x64
-      @os_type="linux_x64"
+      $os_type = "linux_x64"
     elsif Hardware::CPU.intel?
       url $url_macos_x64
       sha256 $sha_macos_x64
-      @os_type="darwin_x64"
+      $os_type = "darwin_x64"
       else
       url $url_macos_arm64
       sha256 $sha_macos_arm64
-      @os_type="darwin_arm64"
+      $os_type = "darwin_arm64"
     end
 
     depends_on "v2ray"
 
     def install
-      bin.install "v2raya_unstable_#{os_type}_#{version}" => "v2raya-unstable"
+        mv
+      bin.install "v2raya_unstable_#{$os_type}_#{version}" => "v2raya-unstable"
       system "echo", "v2raya-unstable installed, please don't run both v2raya and v2raya-unstable service at the same time."
       system "echo", "or write launchd's plist file yourself to specify ports used by v2raya-unstable."
     end
