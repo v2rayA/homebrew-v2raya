@@ -6,11 +6,11 @@ class V2rayaUnstable < Formula
     
     $v2raya_version = "20230330.r1326.41bafe0"
     $url_linux_x64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/4564878623/v2raya_linux_x64_unstable-20230330.r1326.41bafe0.41bafe0.zip"
-    $sha_linux_x64 = "a2109dca4c9f00c17af2ca3e4b7d5518027d27645a413e927aa6da4d48df7b76"
+    $sha_linux_x64 = "c4ae7f1fd8f0da771743880ce3878b5c570cbc59f53a4d8c3b5e94ea5e92e644"
     $url_macos_x64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/4564878623/v2raya_darwin_x64_unstable-20230330.r1326.41bafe0.41bafe0.zip"
-    $sha_macos_x64 = "71bfae0be352d97743d898daa6e2573bf6ac67ecb7952c630063be4c9ce19ddb"
+    $sha_macos_x64 = "ff828b36542f312049448b321ab0ac7c9db8e9f1fa8f207eeb3243d86d96ad2a"
     $url_macos_arm64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/4564878623/v2raya_darwin_arm64_unstable-20230330.r1326.41bafe0.41bafe0.zip"
-    $sha_macos_arm64 = "1d588c40f61d321ff93c553c8512a56aac87ddfb7aedecb58a192d4c14a6ea87"
+    $sha_macos_arm64 = "bd5b576406acd619de264b5f3c4943db6effb2c8fd12b4a58351e0a716374300"
 
     if OS.linux?
       url $url_linux_x64
