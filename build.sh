@@ -2,7 +2,6 @@
 
 set -e
 
-# v2rayA_latest_tag=$(curl -s https://api.github.com/repos/v2rayA/v2rayA/tags | jq -r ".[]" |  jq -r '.name' | awk 'NR==1 {print; exit}' | awk -F 'v' '{print $2}')
 v2rayA_build_tag='2.0.4'
 v2rayA_source_url='https://github.com/v2rayA/v2rayA/archive/refs/tags/''v'"$v2rayA_build_tag"'.tar.gz'
 
@@ -18,7 +17,7 @@ mkdir $current_dir/v2raya-x86_64-linux/
 mkdir $current_dir/v2raya-x86_64-macos/
 mkdir $current_dir/v2raya-aarch64-macos/
 
-cd v2rayA-$v2rayA_latest_tag
+cd v2rayA-$v2rayA_build_tag
 cd ./gui && yarn && yarn build
 cd ..
 cp -r ./web ./service/server/router/
@@ -28,9 +27,9 @@ GOARCH="amd64" GOOS="darwin" go build -ldflags "$build_flags" -o $current_dir/v2
 GOARCH="arm64" GOOS="darwin" go build -ldflags "$build_flags" -o $current_dir/v2raya-aarch64-macos/v2raya
 
 cd $current_dir
-zip -r v2raya-x86_64-linux.zip ./v2raya-x86_64-linux/*
-zip -r v2raya-x86_64-macos.zip ./v2raya-x86_64-macos/*
-zip -r v2raya-aarch64-macos.zip ./v2raya-aarch64-macos/*
+zip -r9 v2raya-x86_64-linux.zip ./v2raya-x86_64-linux/*
+zip -r9 v2raya-x86_64-macos.zip ./v2raya-x86_64-macos/*
+zip -r9 v2raya-aarch64-macos.zip ./v2raya-aarch64-macos/*
 
 for i in v2raya-x86_64-linux.zip v2raya-x86_64-macos.zip v2raya-aarch64-macos.zip; do
   shasum -a 256 $i > $i.sha256.txt
