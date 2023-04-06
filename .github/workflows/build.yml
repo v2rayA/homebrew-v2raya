@@ -14,7 +14,6 @@ jobs:
           fetch-depth: 0
       - name: Build v2rayA
         run: |
-          sudo apt install jq -y
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           brew install yarn nodejs go
           cat build.sh | bash

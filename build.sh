@@ -2,14 +2,15 @@
 
 set -e
 
-v2rayA_latest_tag=$(curl -s https://api.github.com/repos/v2rayA/v2rayA/tags | jq -r ".[]" |  jq -r '.name' | awk 'NR==1 {print; exit}' | awk -F 'v' '{print $2}')
-v2rayA_source_url='https://github.com/v2rayA/v2rayA/archive/refs/tags/''v'"$v2rayA_latest_tag"'.tar.gz'
+# v2rayA_latest_tag=$(curl -s https://api.github.com/repos/v2rayA/v2rayA/tags | jq -r ".[]" |  jq -r '.name' | awk 'NR==1 {print; exit}' | awk -F 'v' '{print $2}')
+v2rayA_build_tag='2.0.4'
+v2rayA_source_url='https://github.com/v2rayA/v2rayA/archive/refs/tags/''v'"$v2rayA_build_tag"'.tar.gz'
 
 curl -L -o v2rayA.tar.gz $v2rayA_source_url
 tar -xzf v2rayA.tar.gz
 
 current_dir="$(pwd)"
-build_flags='-X github.com/v2rayA/v2rayA/conf.Version='"v$v2rayA_latest_tag-brew"' -s -w'
+build_flags='-X github.com/v2rayA/v2rayA/conf.Version='"v$v2rayA_build_tag-brew"' -s -w'
 
 export CGO_ENABLED="0"
 
