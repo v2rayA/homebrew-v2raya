@@ -2,7 +2,7 @@
 
 set -e
 
-v2rayA_build_tag='2.0.4'
+v2rayA_build_tag='2.0.5'
 v2rayA_source_url='https://github.com/v2rayA/v2rayA/archive/refs/tags/''v'"$v2rayA_build_tag"'.tar.gz'
 
 curl -L -o v2rayA.tar.gz $v2rayA_source_url
