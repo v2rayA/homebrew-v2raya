@@ -8,7 +8,7 @@ $Current_Source_Url = Get-Content -Path "./Formula/v2raya-git.rb" | Select-Strin
 $Current_File_Hash = Get-Content -Path "./Formula/v2raya-git.rb" | Select-String "sha256 " | ForEach-Object { ([string]$_).split('"')[1]}
 
 $Latest_Version_Date = ((((((Invoke-RestMethod -Uri "https://api.github.com/repos/v2rayA/v2rayA/commits/feat_v5").commit).author) | ConvertTo-Json).Split('"')[11]).Split('T')[0]) -replace '-',''
-$Latest_Version = $Latest_Version_Date + "." + $(($Latest_Commit_ID)|cut -b 1-6)
+$Latest_Version = $Latest_Version_Date + "." + $(($Latest_Commit_ID)|cut -b 1-7)
 
 $Current_Version = Get-Content -Path "./Formula/v2raya-git.rb" | Select-String "version " | ForEach-Object { ([string]$_).split('"')[1]}
 
