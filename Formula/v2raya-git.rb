@@ -2,7 +2,7 @@ class V2rayaGit < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
-    version "20230510.25975f"
+    version "20230510.25975fb"
  
     url "https://github.com/v2rayA/v2rayA/archive/25975fb8e57a882fa5147ab93a6974317ebcdfba.zip"
     sha256 "88628ABF94986F0A25F40DF6F530B136D5611E915928C7087A65B0F938F73E4B"
