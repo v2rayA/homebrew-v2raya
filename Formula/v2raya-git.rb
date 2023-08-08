@@ -2,10 +2,10 @@ class V2rayaGit < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
-    version "20230803.6b34d10"
+    version "20230808.a670323"
  
-    url "https://github.com/v2rayA/v2rayA/archive/6b34d109d5471f5f183eb4b0a77029ad3dbc31f6.zip"
-    sha256 "9AA35668C150A62891646C6F5CB493F260B4607DE2ABB079809AD392CAC497DA"
+    url "https://github.com/v2rayA/v2rayA/archive/a670323433f6de755b403883132822e19e0857ad.zip"
+    sha256 "5336A0C8558DD5038829EA7F135B682353347747C6CAA8D2BF1A30E2F9C81511"
 
     depends_on "v2ray"
     depends_on "go" => :build
