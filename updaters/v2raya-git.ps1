@@ -23,5 +23,5 @@ if ($Current_Version -eq $Latest_Version) {
     (Get-Content -Path "./Formula/v2raya-git.rb") -replace $Current_Source_Url, $Latest_Source_Url | Out-File "./Formula/v2raya-git.rb"
     (Get-Content -Path "./Formula/v2raya-git.rb") -replace $Current_Version, $Latest_Version | Out-File "./Formula/v2raya-git.rb"
     (Get-Content -Path "./Formula/v2raya-git.rb") -replace $Current_File_Hash, $Latest_File_Hash | Out-File "./Formula/v2raya-git.rb"
-    git commit "./Formula/v2raya-git.rb" -m "v2rayA-git: update to version $Latest_Version"
+    git commit "./Formula/v2raya-git.rb" -m "v2raya-git: update to version $Latest_Version"
 }
