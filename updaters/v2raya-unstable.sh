@@ -5,7 +5,7 @@ set -e
 sudo apt install -y jq
 
 latest_action_id=$(curl -s "https://api.github.com/repos/v2rayA/v2rayA/actions/workflows/release_feat_v5.yml/runs" | jq -r ".workflow_runs[0].jobs_url" | awk -F '/' '{printf $9}')
-latest_version=$(curl -s "https://api.github.com/repos/v2rayA/v2rayA/actions/runs/5791674195/artifacts" | jq -r ".artifacts[0].name" | awk -F '-' '{printf $2}')
+latest_version=$(curl -s "https://api.github.com/repos/v2rayA/v2rayA/actions/runs/$latest_action_id/artifacts" | jq -r ".artifacts[0].name" | awk -F '-' '{printf $2}')
 
 url_linux_x64='https://nightly.link/v2rayA/v2rayA/actions/runs/'"$latest_action_id""/v2raya_linux_x64_unstable-$latest_version.zip"
 url_darwin_x64='https://nightly.link/v2rayA/v2rayA/actions/runs/'"$latest_action_id""/v2raya_darwin_x64_unstable-$latest_version.zip"
