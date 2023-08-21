@@ -2,15 +2,15 @@ class V2rayaUnstable < Formula
   desc "Web-based GUI client of Project V"
   homepage "https://v2raya.org"
   license "AGPL-3.0-only"
-  version "20230820.r1390.c47bf00"
+  version "20230821.r1411.b121a5f"
   
-  $v2raya_version = "20230820.r1390.c47bf00"
-  $url_linux_x64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/5914995735/v2raya_linux_x64_unstable-20230820.r1390.c47bf00.zip"
-  $sha_linux_x64 = "1bfc1b97e6fc4e97a1d40066c8525ce2a4a7f0a540818249c9ae96ff3631acd4"
-  $url_macos_x64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/5914995735/v2raya_darwin_x64_unstable-20230820.r1390.c47bf00.zip"
-  $sha_macos_x64 = "9658380ae621a6146de675b4c4bf2abe9aaddb0c5e9df3c3416cda78cb0a30f1"
-  $url_macos_arm64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/5914995735/v2raya_darwin_arm64_unstable-20230820.r1390.c47bf00.zip"
-  $sha_macos_arm64 = "26e98d9c13ec2e413745098686533dad7852a89e4b08a5ce61d68070c7efffb1"
+  $v2raya_version = "20230821.r1411.b121a5f"
+  $url_linux_x64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/5925906489/v2raya_linux_x64_unstable-20230821.r1411.b121a5f.zip"
+  $sha_linux_x64 = "57395b55a3c3cd30d77c3669924e1c16f8de607ab6c966e647d3075ba6cf89a2"
+  $url_macos_x64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/5925906489/v2raya_darwin_x64_unstable-20230821.r1411.b121a5f.zip"
+  $sha_macos_x64 = "a29700b92972861637f210add8919dd4e5a27ad5fa69a76e1f5c3dcf429f609f"
+  $url_macos_arm64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/5925906489/v2raya_darwin_arm64_unstable-20230821.r1411.b121a5f.zip"
+  $sha_macos_arm64 = "de51c45eb74207018f1540fa5e2b5c6ae3eb51c4a813784c7ab4891222f12118"
 
   if OS.linux?
     url $url_linux_x64
