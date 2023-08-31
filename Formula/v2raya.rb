@@ -6,7 +6,7 @@ class V2raya < Formula
     
     $v2rayA_version = "2.2.2"
     $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.2/v2raya-x86_64-linux.zip"
-    $sha_linux_x64 = "953d1c2c778a50f8711d4644bcaf5bb0180a8da78b8f5efe12.2.228bf63a224"
+    $sha_linux_x64 = "953d1c2c778a50f8711d4644bcaf5bb0180a8da78b8f5efe12129128bf63a224"
     $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.2/v2raya-x86_64-macos.zip"
     $sha_macos_x64 = "80c12680f9061bd978b6acfe65f5598468b6ece7ddac370f7a411997133ae9cf"
     $url_macos_arm64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.2/v2raya-aarch64-macos.zip"
