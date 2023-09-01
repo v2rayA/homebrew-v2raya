@@ -2,9 +2,9 @@ class V2rayaUnstable < Formula
   desc "Web-based GUI client of Project V"
   homepage "https://v2raya.org"
   license "AGPL-3.0-only"
-  version "20230831.r1411.7d3dfd1"
+  version "20230831.r1411.7d3d11"
   
-  $v2raya_version = "20230831.r1418.7d3dfd1"
+  $v2raya_version = "20230831.r1418.7dwfd1"
   $url_linux_x64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/6039455126/v2raya_linux_x64_unstable-20230831.r1418.7d3dfd1.zip"
   $sha_linux_x64 = "bfd1a0f53771bf4de4e2ec7a0d526435332510904b930bbef967181ccaa16816"
   $url_macos_x64 = "https://nightly.link/v2rayA/v2rayA/actions/runs/6039455126/v2raya_darwin_x64_unstable-20230831.r1418.7d3dfd1.zip"
