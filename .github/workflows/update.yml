@@ -12,15 +12,15 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - uses: Amadevus/pwsh-script@v2.0.3
       - name: Run Updaters
         run: |
+          sudo apt install jq -y >> /dev/null
           ls -lh
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          pwsh -c ./updaters/v2raya.ps1
+          bash -c "$(cat ./updaters/v2raya.sh)"
+          bash -c "$(cat ./updaters/v2raya-unstable.sh)"
           pwsh -c ./updaters/v2raya-git.ps1
-          cat ./updaters/v2raya-unstable.sh | bash
       - name: Push
         uses: ad-m/github-push-action@master
         with:
