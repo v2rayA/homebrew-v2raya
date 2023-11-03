@@ -9,11 +9,12 @@ class V2rayaGit < Formula
 
     depends_on "v2ray"
     depends_on "go" => :build
-    depends_on "node" => :build
+    depends_on "node@20" => :build
     depends_on "yarn" => :build
 
     def install
         ENV.deparallelize
+        ENV['PATH'] = "#{HOMEBREW_PREFIX}/opt/node@20/bin:#{ENV['PATH']}"
         chdir "gui" do
           system "yarn"
           system "yarn", "build"
