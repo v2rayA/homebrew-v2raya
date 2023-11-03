@@ -19,7 +19,8 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           bash -c "$(cat ./updaters/v2raya.sh)"
-          bash -c "$(cat ./updaters/v2raya-unstable.sh)"
+          # bash -c "$(cat ./updaters/v2raya-unstable.sh)"
+          pwsh -c ./updaters/v2raya-unstable.ps1
           pwsh -c ./updaters/v2raya-git.ps1
       - name: Push
         uses: ad-m/github-push-action@master
