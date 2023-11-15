@@ -1,6 +1,12 @@
 $latest_run_id = ((Invoke-RestMethod "https://api.github.com/repos/v2rayA/v2rayA/actions/workflows/release_main.yml/runs").workflow_runs).jobs_url | Select-Object -First 1 | ForEach-Object { ([string]$_).split('/')[8]}
 $latest_unstable_version = ((Invoke-RestMethod "https://api.github.com/repos/v2rayA/v2rayA/actions/runs/$latest_run_id/artifacts").artifacts).name | Select-Object -First 1 | ForEach-Object { ([string]$_).split('-')[1]} | ForEach-Object { ([string]$_).split('.pkg')[0]}
 $current_unstable_version = Get-Content ./Formula/v2raya-unstable.rb | Select-String 'v2raya_version' | ForEach-Object { ([string]$_).split('"')[1]}
+if ($latest_unstable_version) {
+    Write-Output "Get $latest_unstable_version from GitHub API."
+}else{
+    Write-Output "Get null from GitHub API, don't update v2raya-unstable."
+    exit
+}
 if ($current_unstable_version -eq $latest_unstable_version) {
     Write-Output "Nothing to do, you have the latest version of v2raya-unstable."
 }else{
