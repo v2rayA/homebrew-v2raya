@@ -2,19 +2,19 @@ class V2rayaGit < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
-    version "20231112.a365d9c"
+    version "20231118.3c2873d"
  
-    url "https://github.com/v2rayA/v2rayA/archive/a365d9c03fa20ee828e6d148a877961bb72456d0.zip"
-    sha256 "2F18C527F1EBF0D4E9977B3CA96B0C11833E2E582197C519EDAC9C314F959CF0"
+    url "https://github.com/v2rayA/v2rayA/archive/3c2873dc3debccdadb35808b99e8a59e307ddce5.zip"
+    sha256 "565CAFC582F9042C19D2401222AAC3196A554111692D6A4AA67B93D9AF49520D"
 
     depends_on "v2ray"
     depends_on "go" => :build
-    depends_on "node@20" => :build
+    depends_on "node" => :build
     depends_on "yarn" => :build
 
     def install
         ENV.deparallelize
-        ENV['PATH'] = "#{HOMEBREW_PREFIX}/opt/node@20/bin:#{ENV['PATH']}"
+        # ENV['PATH'] = "#{HOMEBREW_PREFIX}/opt/node@20/bin:#{ENV['PATH']}"
         chdir "gui" do
           system "yarn"
           system "yarn", "build"
