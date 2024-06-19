@@ -2,15 +2,15 @@ class V2raya < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
-    version "2.2.5.2"
+    version "2.2.5.5"
     
-    $v2rayA_version = "2.2.5.2"
-    $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.5.2/v2raya-x86_64-linux.zip"
-    $sha_linux_x64 = "7548e86cadc8429142f4ade6f8174230ec2df43310192add166cd5969f2f10f9"
-    $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.5.2/v2raya-x86_64-macos.zip"
-    $sha_macos_x64 = "e72d3678e02b4a85dba3c9d7de11cbb92f65c9c5eeaf195ff4334c10e8a03bbd"
-    $url_macos_arm64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.5.2/v2raya-aarch64-macos.zip"
-    $sha_macos_arm64 = "a0d4cdb8f3af54360c84c7bb3ae45d74847b4b8081c852517298b82fc8dae3eb"
+    $v2rayA_version = "2.2.5.5"
+    $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.5.5/v2raya-x86_64-linux.zip"
+    $sha_linux_x64 = "1899a2cf7f70e34d4e546ceb97d12b40ed7d1d344bb6af2c5a2bb2f1a1358cb7"
+    $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.5.5/v2raya-x86_64-macos.zip"
+    $sha_macos_x64 = "a6b7e2f9e01e4e0e75f08bfa991e8ba5684104c635004faf51bb40ff4b133e36"
+    $url_macos_arm64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.5.5/v2raya-aarch64-macos.zip"
+    $sha_macos_arm64 = "6a8f7107846ec3e2fc4133d36137bcceb06acc28642951afc98af98328e598de"
 
     if OS.linux?
       url $url_linux_x64
