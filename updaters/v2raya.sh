@@ -7,6 +7,10 @@ if ! curl -sL https://api.github.com/repos/v2rayA/homebrew-v2raya/releases/lates
     exit
 fi
 latest_version=$(cat /tmp/v2raya.json | jq -r '.tag_name')
+if [ "$latest_version" == "null" ]; then
+    echo "GitHub API rate limit exceeded, please try again later."
+    exit
+fi
 current_version=$(cat ./Formula/v2raya.rb | grep 'v2rayA_version =' | awk -F '"' '{print $2}')
 if [ "$current_version" != "$latest_version" ]; then
     if ! curl -sL https://github.com/v2rayA/homebrew-v2raya/releases/download/$latest_version/v2raya-x86_64-linux.zip.sha256.txt > /tmp/v2raya-linux.sha256; then
