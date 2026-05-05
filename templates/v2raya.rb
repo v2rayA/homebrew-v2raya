@@ -23,10 +23,9 @@ class V2raya < Formula
       sha256 $sha_macos_arm64
     end
 
-    depends_on "v2ray"
-
     def install
       bin.install "v2raya"
+      bin.install "v2raya_core"
       puts "If you forget your password, stop running v2raya, then run `v2raya --lite --reset-password` to reset password."
     end
 
