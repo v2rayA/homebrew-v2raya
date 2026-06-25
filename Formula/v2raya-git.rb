@@ -2,12 +2,11 @@ class V2rayaGit < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
-    version "20260504.074305b"
+    version "20260625.05a743e"
  
-    url "https://github.com/v2rayA/v2rayA/archive/074305b21bb3797eac2415aa5c385a579cd5943c.zip"
-    sha256 "B61C710037BD7C460F3153364149F5045D3E2FC0952F30BF833CBBF1EE95FE82"
+    url "https://github.com/v2rayA/v2rayA/archive/05a743ed302f73cd4e31a51f69fadbb1e8e2a6bb.zip"
+    sha256 "5E1AB5B6010BF8E9F19DB831EED81CC0A1A20D4B52D105BF3D8EFF5F7CC24087"
 
-    depends_on "v2ray"
     depends_on "go" => :build
     depends_on "node" => :build
     depends_on "yarn" => :build
@@ -23,13 +22,18 @@ class V2rayaGit < Formula
         chdir "service" do
           system "go build -o \"v2raya\" -ldflags \"-X github.com/v2rayA/v2rayA/conf.Version=unstable-#{version} -s -w\""
         end
+        chdir "core" do
+          system "go build -o \"v2raya_core\" -ldflags \"-X main.Version=unstable-#{version} -s -w\" ./main"
+        end
       cp_r "service/v2raya", "v2raya-git"
+      cp_r "core/v2raya_core", "v2raya_core-git"
       bin.install "v2raya-git"
+      bin.install "v2raya_core-git"
     end
 
     service do
       environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya-git.log", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share", PATH: "/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin:"
-      run [bin/"v2raya-git", "--lite"]
+      run [bin/"v2raya-git", "--lite", "--v2raya-core", bin/"v2raya_core-git"]
       keep_alive true
     end
 end
