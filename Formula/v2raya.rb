@@ -2,15 +2,15 @@ class V2raya < Formula
     desc "Web-based GUI client of Project V"
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
-    version "2.2.7.5"
+    version "2.4.4"
     
-    $v2rayA_version = "2.2.7.5"
-    $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.7.5/v2raya-x86_64-linux.zip"
-    $sha_linux_x64 = "9027bfa6e58f9257623c772f07b52c4a00449581a271cfa4eb2e1009c996c223"
-    $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.7.5/v2raya-x86_64-macos.zip"
-    $sha_macos_x64 = "7a628d8359e8019a532515f71fb6ec7f6ac01b0ada7e0b18f92b835dbf841b90"
-    $url_macos_arm64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.2.7.5/v2raya-aarch64-macos.zip"
-    $sha_macos_arm64 = "77e0d0acae4587c371e800a752ab20cc7784bff2088c21f0537cb85786052e05"
+    $v2rayA_version = "2.4.4"
+    $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.4.4/v2raya-x86_64-linux.zip"
+    $sha_linux_x64 = "947e0c270581136f1bd9b60810f69392b127dff77d37fd8ac753604f6f411f06"
+    $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.4.4/v2raya-x86_64-macos.zip"
+    $sha_macos_x64 = "c8730c69355dff4d942cc09124e7fb714720163fcf5369e1bca9372045eb82ca"
+    $url_macos_arm64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/2.4.4/v2raya-aarch64-macos.zip"
+    $sha_macos_arm64 = "b2c7307c664eb40c43f867d4767b4e314e5b18940c18ecfe5976295da6492c97"
 
     if OS.linux?
       url $url_linux_x64
@@ -23,10 +23,9 @@ class V2raya < Formula
       sha256 $sha_macos_arm64
     end
 
-    depends_on "v2ray"
-
     def install
       bin.install "v2raya"
+      bin.install "v2raya_core"
       puts "If you forget your password, stop running v2raya, then run `v2raya --lite --reset-password` to reset password."
     end
 
