@@ -37,8 +37,8 @@ class V2raya < Formula
       bin.install "v2raya_core"
       rules_dat = Formula["v2ray-rules-dat"]
       mkdir_p share/"v2raya"
-      share/"v2raya".install_symlink(rules_dat.opt_pkgshare/"geosite.dat")
-      share/"v2raya".install_symlink(rules_dat.opt_pkgshare/"geoip.dat")
+      File.symlink(rules_dat.opt_pkgshare/"geosite.dat", share/"v2raya"/"geosite.dat")
+      File.symlink(rules_dat.opt_pkgshare/"geoip.dat", share/"v2raya"/"geoip.dat")
       puts "If you forget your password, stop running v2raya, then run `v2raya --lite --reset-password` to reset password."
     end
 

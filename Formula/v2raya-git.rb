@@ -28,8 +28,8 @@ class V2rayaGit < Formula
         end
       rules_dat = Formula["v2ray-rules-dat"]
       mkdir_p share/"v2raya-git"
-      share/"v2raya-git".install_symlink(rules_dat.opt_pkgshare/"geosite.dat")
-      share/"v2raya-git".install_symlink(rules_dat.opt_pkgshare/"geoip.dat")
+      File.symlink(rules_dat.opt_pkgshare/"geosite.dat", share/"v2raya-git"/"geosite.dat")
+      File.symlink(rules_dat.opt_pkgshare/"geoip.dat", share/"v2raya-git"/"geoip.dat")
       cp_r "service/v2raya", "v2raya-git"
       cp_r "core/v2raya_core", "v2raya_core-git"
       bin.install "v2raya-git"
