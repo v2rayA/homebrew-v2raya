@@ -10,6 +10,7 @@ class V2rayaGit < Formula
     depends_on "go" => :build
     depends_on "node" => :build
     depends_on "yarn" => :build
+    depends_on "v2ray-rules-dat"
 
     def install
         ENV.deparallelize
@@ -25,6 +26,10 @@ class V2rayaGit < Formula
         chdir "core" do
           system "go build -o \"v2raya_core\" -ldflags \"-X main.Version=unstable-#{version} -s -w\" ./main"
         end
+      rules_dat = Formula["v2ray-rules-dat"]
+      mkdir_p share/"v2raya-git"
+      share/"v2raya-git".install_symlink(rules_dat.opt_pkgshare/"geosite.dat")
+      share/"v2raya-git".install_symlink(rules_dat.opt_pkgshare/"geoip.dat")
       cp_r "service/v2raya", "v2raya-git"
       cp_r "core/v2raya_core", "v2raya_core-git"
       bin.install "v2raya-git"
@@ -32,7 +37,7 @@ class V2rayaGit < Formula
     end
 
     service do
-      environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya-git.log", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share", PATH: "/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin:"
+      environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya-git.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2raya-git", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share", PATH: "/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin:"
       run [bin/"v2raya-git", "--lite", "--v2raya-core", bin/"v2raya_core-git"]
       keep_alive true
     end

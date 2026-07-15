@@ -19,6 +19,12 @@ if [ "$current_version" != "$latest_version" ]; then
     else
         latest_sha_linux_x64="$(cat /tmp/v2raya-linux.sha256 | awk '{print $1}')"
     fi
+    if ! curl -sL https://github.com/v2rayA/homebrew-v2raya/releases/download/$latest_version/v2raya-aarch64-linux.zip.sha256.txt > /tmp/v2raya-linux-arm64.sha256; then
+        echo "GitHub API rate limit exceeded, please try again later."
+        exit
+    else
+        latest_sha_linux_arm64="$(cat /tmp/v2raya-linux-arm64.sha256 | awk '{print $1}')"
+    fi
     if ! curl -sL https://github.com/v2rayA/homebrew-v2raya/releases/download/$latest_version/v2raya-x86_64-macos.zip.sha256.txt > /tmp/v2raya-macos.sha256; then
         echo "GitHub API rate limit exceeded, please try again later."
         exit
@@ -35,6 +41,7 @@ if [ "$current_version" != "$latest_version" ]; then
     sed -i "s|RealSha256_MacOS_arm64|$latest_sha_macos_arm64|g" ./Formula/v2raya.rb
     sed -i "s|RealSha256_MacOS_x64|$latest_sha_macos_x64|g" ./Formula/v2raya.rb
     sed -i "s|RealSha256_Linux_x64|$latest_sha_linux_x64|g" ./Formula/v2raya.rb
+    sed -i "s|RealSha256_Linux_arm64|$latest_sha_linux_arm64|g" ./Formula/v2raya.rb
     git commit ./Formula/v2raya.rb -m "v2raya: update to $latest_version"
 else
     echo "Nothing to do, you have the latest version of v2raya."
