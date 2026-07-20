@@ -19,7 +19,7 @@ if [ "$current_version" != "$latest_version" ]; then
     else
         latest_sha_linux_x64="$(cat /tmp/v2raya-linux.sha256 | awk '{print $1}')"
     fi
-    if ! curl -sL https://github.com/v2rayA/homebrew-v2raya/releases/download/$latest_version/v2raya-aarch64-linux.zip.sha256.txt > /tmp/v2raya-linux-arm64.sha256; then
+    if ! curl -sL https://github.com/v2rayA/homebrew-v2raya/releases/download/$latest_version/v2raya-arm64-linux.zip.sha256.txt > /tmp/v2raya-linux-arm64.sha256; then
         echo "GitHub API rate limit exceeded, please try again later."
         exit
     else

@@ -3,11 +3,11 @@ class V2raya < Formula
     homepage "https://v2raya.org"
     license "AGPL-3.0-only"
     version "TheRealVersion"
-    
+
     $v2rayA_version = "TheRealVersion"
     $url_linux_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/TheRealVersion/v2raya-x86_64-linux.zip"
     $sha_linux_x64 = "RealSha256_Linux_x64"
-    $url_linux_arm64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/TheRealVersion/v2raya-aarch64-linux.zip"
+    $url_linux_arm64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/TheRealVersion/v2raya-arm64-linux.zip"
     $sha_linux_arm64 = "RealSha256_Linux_arm64"
     $url_macos_x64 = "https://github.com/v2rayA/homebrew-v2raya/releases/download/TheRealVersion/v2raya-x86_64-macos.zip"
     $sha_macos_x64 = "RealSha256_MacOS_x64"
