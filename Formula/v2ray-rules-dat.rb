@@ -2,13 +2,13 @@ class V2rayRulesDat < Formula
     desc "Enhanced V2Ray rules dat files"
     homepage "https://github.com/loyalsoldier/v2ray-rules-dat"
     license "GPL-3.0-only"
-    version "202607282253"
+    version "202607292255"
 
-    $v2rayRulesDat_version = "202607282253"
-    $url_geosite = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202607282253/geosite.dat"
-    $sha_geosite = "7ba5768a73e86f1382349badd26d6f21f8b74fd7280d473fd636ad623f771b14"
-    $url_geoip = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202607282253/geoip.dat"
-    $sha_geoip = "4de49c5de6f06a93d83d0502e10f1fb82359c23211f8523d38341c7ac8d0eb18"
+    $v2rayRulesDat_version = "202607292255"
+    $url_geosite = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202607292255/geosite.dat"
+    $sha_geosite = "9e0b50efeed328ea5b6d827922635bc6cc1f0154484023af579720dbb8fd32d0"
+    $url_geoip = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202607292255/geoip.dat"
+    $sha_geoip = "7150b22213591be29aa081b14b4fdc80bfa44540d07cec42c43abe1477a2b640"
 
     url $url_geosite
     sha256 $sha_geosite
