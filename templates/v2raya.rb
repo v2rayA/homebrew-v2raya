@@ -39,12 +39,23 @@ class V2raya < Formula
       mkdir_p share/"v2raya"
       File.symlink(rules_dat.opt_pkgshare/"geosite.dat", share/"v2raya"/"geosite.dat")
       File.symlink(rules_dat.opt_pkgshare/"geoip.dat", share/"v2raya"/"geoip.dat")
-      puts "If you forget your password, stop running v2raya, then run `v2raya --lite --reset-password` to reset password."
+    end
+
+    def caveats
+      <<~EOS
+        The service runs as root so that the tun transparent proxy is available:
+          sudo brew services start v2raya
+        Without root, run it as yourself with the system proxy instead of tun:
+          v2raya --lite
+        A forgotten password is reset with the service stopped:
+          sudo v2raya --reset-password        (or v2raya --lite --reset-password)
+      EOS
     end
 
     service do
       environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2raya", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share", PATH: "/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin:"
-      run [bin/"v2raya", "--lite"]
+      run [opt_bin/"v2raya"]
+      require_root true
       keep_alive true
     end
 end

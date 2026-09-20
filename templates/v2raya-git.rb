@@ -38,7 +38,8 @@ class V2rayaGit < Formula
 
     service do
       environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya-git.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2raya-git", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share", PATH: "/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin:"
-      run [bin/"v2raya-git", "--lite", "--v2raya-core", bin/"v2raya_core-git"]
+      run [opt_bin/"v2raya-git", "--v2ray-bin", opt_bin/"v2raya_core-git"]
+      require_root true
       keep_alive true
     end
 end
