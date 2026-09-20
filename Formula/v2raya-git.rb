@@ -34,11 +34,22 @@ class V2rayaGit < Formula
       cp_r "core/v2raya_core", "v2raya_core-git"
       bin.install "v2raya-git"
       bin.install "v2raya_core-git"
+      # brew services runs this as root after `sudo brew services start`
+      # and as the user otherwise; only root can have the tun transparent
+      # proxy, so the user gets lite mode with the system proxy.
+      (libexec/"v2raya-git-service").write <<~EOS
+        #!/bin/sh
+        if [ "$(id -u)" -eq 0 ]; then
+          exec "#{opt_bin}/v2raya-git" "--v2ray-bin" "#{opt_bin}/v2raya_core-git" "$@"
+        fi
+        exec "#{opt_bin}/v2raya-git" --lite "--v2ray-bin" "#{opt_bin}/v2raya_core-git" "$@"
+      EOS
+      chmod 0755, libexec/"v2raya-git-service"
     end
 
     service do
       environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya-git.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2raya-git", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share", PATH: "/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin:"
-      run [bin/"v2raya-git", "--lite", "--v2raya-core", bin/"v2raya_core-git"]
+      run [opt_libexec/"v2raya-git-service"]
       keep_alive true
     end
 end
