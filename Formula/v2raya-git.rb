@@ -1,6 +1,6 @@
 class V2rayaGit < Formula
-    desc "Web-based GUI client of Project V"
-    homepage "https://v2raya.org"
+    desc "Web client for its own Xray-based core, with transparent proxy"
+    homepage "https://github.com/v2rayA/v2rayA"
     license "AGPL-3.0-only"
     version "20260920.cec4010"
  
@@ -35,20 +35,27 @@ class V2rayaGit < Formula
       bin.install "v2raya-git"
       bin.install "v2raya_core-git"
       # brew services runs this as root after `sudo brew services start`
-      # and as the user otherwise; only root can have the tun transparent
-      # proxy, so the user gets lite mode with the system proxy.
+      # and as the user otherwise. Only root can have the tun transparent
+      # proxy, so the user gets lite mode with the system proxy; each keeps
+      # a log it can write.
       (libexec/"v2raya-git-service").write <<~EOS
         #!/bin/sh
         if [ "$(id -u)" -eq 0 ]; then
+          export V2RAYA_LOG_FILE="${V2RAYA_LOG_FILE:-#{var}/log/v2raya-git.log}"
           exec "#{opt_bin}/v2raya-git" "--v2ray-bin" "#{opt_bin}/v2raya_core-git" "$@"
         fi
+        case "$(uname)" in
+          Darwin) log="$HOME/Library/Logs/v2raya-git/v2raya-git.log" ;;
+          *) log="${XDG_STATE_HOME:-$HOME/.local/state}/v2raya-git/v2raya-git.log" ;;
+        esac
+        export V2RAYA_LOG_FILE="${V2RAYA_LOG_FILE:-$log}"
         exec "#{opt_bin}/v2raya-git" --lite "--v2ray-bin" "#{opt_bin}/v2raya_core-git" "$@"
       EOS
       chmod 0755, libexec/"v2raya-git-service"
     end
 
     service do
-      environment_variables V2RAYA_LOG_FILE: "/tmp/v2raya-git.log", V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2raya-git", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share", PATH: "/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin:"
+      environment_variables V2RAYA_V2RAY_ASSETSDIR: "#{HOMEBREW_PREFIX}/share/v2raya-git", XDG_DATA_DIRS: "#{HOMEBREW_PREFIX}/share:/usr/local/share:/usr/share", PATH: "/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:#{HOMEBREW_PREFIX}/bin:"
       run [opt_libexec/"v2raya-git-service"]
       keep_alive true
     end
