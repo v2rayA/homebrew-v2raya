@@ -2,10 +2,10 @@ class V2rayaGit < Formula
     desc "Web client for its own Xray-based core, with transparent proxy"
     homepage "https://github.com/v2rayA/v2rayA"
     license "AGPL-3.0-only"
-    version "20260924.bdbc305"
+    version "20260929.f86763d"
  
-    url "https://github.com/v2rayA/v2rayA/archive/bdbc305e97dd780478d93c4ed5ced8a4e3c898a8.zip"
-    sha256 "759C4F3A57041A5F10975D999AAAA0345EFA706228C4CACD66AD3C0582888B4E"
+    url "https://github.com/v2rayA/v2rayA/archive/f86763d00b14c565671fcad75f990fdf40facbf4.zip"
+    sha256 "9D54A2A452A5C3970D3CE83B23314F1ED4BEE5D6B80285CD8DAEF45097D9F56F"
 
     depends_on "go" => :build
     depends_on "node" => :build
