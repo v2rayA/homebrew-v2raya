@@ -2,12 +2,12 @@ class V2rayRulesDat < Formula
     desc "Enhanced V2Ray rules dat files"
     homepage "https://github.com/loyalsoldier/v2ray-rules-dat"
     license "GPL-3.0-only"
-    version "202611162204"
+    version "202611172204"
 
-    $v2rayRulesDat_version = "202611162204"
-    $url_geosite = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202611162204/geosite.dat"
-    $sha_geosite = "0a254319dfa52f8ac7ec4475a310657b06fd6e2d7dca69d47a1c443664f6e04f"
-    $url_geoip = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202611162204/geoip.dat"
+    $v2rayRulesDat_version = "202611172204"
+    $url_geosite = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202611172204/geosite.dat"
+    $sha_geosite = "118d2e1358b892129be6aaf47e1f0c19d48944cf8f979980c65c7de423947883"
+    $url_geoip = "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/202611172204/geoip.dat"
     $sha_geoip = "304ac8a1cbcc8166e4f5a4f32955e4d0fb77a1bd713583e371b30ee27f3659d8"
 
     url $url_geosite
